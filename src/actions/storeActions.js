@@ -3,8 +3,10 @@ export const ACTION_TYPES = {
 };
 
 export function createStoreItem(item) {
-  type: ACTION_TYPES.createStoreItem,
-  payload: {
-    item
-  }
+  return {
+    type: ACTION_TYPES.createStoreItem,
+    payload: {
+      item
+    }    
+  } 
 }
