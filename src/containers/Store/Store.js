@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { createStoreItem } from '../../actions/storeActions'
 
-export default class Store extends Component {
+class Store extends Component {
   constructor() {
     super();
     this.state = {
@@ -19,7 +21,10 @@ export default class Store extends Component {
   }
   onClickSave(e) {
     e.preventDefault();
-    alert(`Saving ${this.state.item.title}`);
+    if (this.state.item.title) {
+      this.props.createStoreItem(this.state.item);
+      this.setState({ item: { title: '' } });
+    }
   }
   render() {
     return (
@@ -39,7 +44,22 @@ export default class Store extends Component {
             Submit
           </button>
         </form>
+        <ul>
+          {this.props.store.map( (item, index) => <li key={index}>{item.title}</li> )}
+        </ul>
       </div>
     )
   }
 }
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    store: state.store
+  }
+}
+
+const mapDispatchToProps = {
+  createStoreItem
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Store);
