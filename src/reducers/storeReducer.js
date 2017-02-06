@@ -1,8 +1,8 @@
-import { ACTION_TYPES } from '../actions/storeActions';
+import TYPES from '../actions/actionTypes';
 
 export default function storeReducer(state = [], { type, payload }) {
   switch (type) {
-    case ACTION_TYPES.createStoreItem:
+    case TYPES.createStoreItem:
       return [
         ...state,
         {...payload.item}

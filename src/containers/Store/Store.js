@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createStoreItem } from '../../actions/storeActions'
+import * as storeActions from '../../actions/storeActions'
 
 class Store extends Component {
   constructor() {
@@ -59,7 +59,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = {
-  createStoreItem
+  createStoreItem: storeActions.createStoreItem
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Store);

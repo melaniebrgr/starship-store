@@ -1,10 +1,8 @@
-export const ACTION_TYPES = {
-  createStoreItem: 'CREATE_STORE_ITEM'
-};
+import TYPES from './actionTypes';
 
 export function createStoreItem(item) {
   return {
-    type: ACTION_TYPES.createStoreItem,
+    type: TYPES.createStoreItem,
     payload: {
       item
     }    
