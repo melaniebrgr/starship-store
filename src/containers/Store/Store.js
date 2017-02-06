@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as storeActions from '../../actions/storeActions'
+import * as storeActions from '../../actions/storeActions';
 
 class Store extends Component {
   constructor() {
