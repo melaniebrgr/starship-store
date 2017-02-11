@@ -7,6 +7,8 @@ export default function storeReducer(state = [], { type, payload }) {
         ...state,
         {...payload.item}
       ];
+    case TYPES.loadItemsSuccess:
+      return payload.items;
     default:
       return state;
   }

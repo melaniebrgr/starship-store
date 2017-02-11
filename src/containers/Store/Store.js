@@ -28,6 +28,9 @@ class Store extends Component {
       this.setState({ item: { title: '' } });
     }
   }
+  componentDidMount() {
+    this.props.loadItems();
+  }
   render() {
     return (
       <div>
@@ -38,7 +41,7 @@ class Store extends Component {
             Add Starship to Store
         </InputForm>
         <ul>
-          {this.props.store.map( (item, index) => <li key={index}>{item.title}</li> )}
+          {this.props.store.map( (item, index) => <li key={index}>{item.title || item.name}</li> )}
         </ul>
       </div>
     )
@@ -52,7 +55,8 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = {
-  createStoreItem: storeActions.createStoreItem
+  createStoreItem: storeActions.createStoreItem,
+  loadItems: storeActions.loadItems
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Store);
