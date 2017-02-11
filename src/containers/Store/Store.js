@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as storeActions from '../../actions/storeActions';
 
+import InputForm from '../../components/InputForm/InputForm';
+
 class Store extends Component {
   constructor() {
     super();
@@ -29,21 +31,12 @@ class Store extends Component {
   render() {
     return (
       <div>
-        <h1>Starship Store</h1>
-        <form>
-          <label>Add Starship to Store 
-            <input 
-              type="text"
-              value={this.state.item.title}
-              placeholder="Millenium Falcon"
-              onChange={this.onChangeTitle} />
-          </label>
-          <button 
-            type="submit"
-            onClick={this.onClickSave} >
-            Submit
-          </button>
-        </form>
+        <InputForm 
+          title={this.state.item.title} 
+          onChangeTitle={this.onChangeTitle} 
+          onClickSave={this.onClickSave}>
+            Add Starship to Store
+        </InputForm>
         <ul>
           {this.props.store.map( (item, index) => <li key={index}>{item.title}</li> )}
         </ul>

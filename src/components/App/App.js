@@ -8,8 +8,9 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h2>Solo Inc. Starshipping</h2>
+          <h1>Solo Inc. Starshipping</h1>
         </header>
+        <h2>Starship Store</h2>
         <Store />
       </div>
     );
