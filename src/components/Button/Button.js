@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 export default function Button({
   type,
@@ -12,4 +12,10 @@ export default function Button({
     {children}
   </button>   
  );
+}
+
+Button.propTypes = {
+  type: PropTypes.string,
+  onClick: PropTypes.func,
+  children: PropTypes.string
 }
