@@ -11,7 +11,7 @@ function loadItemsSuccess(data) {
 }
 
 export function loadItems(attr, query) {
-  return function(dispatch) {
+  return dispatch => {
     return fetch(makeSWAPIurl(attr, query))
       .then(response => response.json())
       .then(data => dispatch(loadItemsSuccess(data)))
