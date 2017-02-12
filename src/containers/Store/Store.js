@@ -9,24 +9,21 @@ class Store extends Component {
   constructor() {
     super();
     this.state = {
-      item: {
-        title: ''
-      }
+      query: ''
     };
 
     this.onClickSave = this.onClickSave.bind(this);
     this.onChangeTitle = this.onChangeTitle.bind(this);
   }
   onChangeTitle(e) {
-    let value = e.target.value;
-    let item = Object.assign({}, this.state.item, {title: value});
-    this.setState({ item });
+    let query = e.target.value;
+    this.setState({ query });
   }
   onClickSave(e) {
     e.preventDefault();
-    if (this.state.item.title) {
-      this.props.loadItems('starships', this.state.item.title);
-      this.setState({ item: { title: '' } });
+    if (this.state.query) {
+      this.props.loadItems('starships', this.state.query);
+      this.setState({ query: '' });
     }
   }
   render() {
@@ -38,7 +35,7 @@ class Store extends Component {
     return (
       <div>
         <InputForm 
-          title={this.state.item.title} 
+          title={this.state.query} 
           onChangeTitle={this.onChangeTitle} 
           onClickSave={this.onClickSave}>
             Add Starship to Store
