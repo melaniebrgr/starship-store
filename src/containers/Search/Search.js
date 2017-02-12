@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as storeActions from '../../actions/storeActions';
+import * as searchActions from '../../actions/searchActions';
 
 import InputForm from '../../components/InputForm/InputForm';
 import StarshipCard from '../../components/StarshipCard/StarshipCard';
 
-class Store extends Component {
+class Search extends Component {
   constructor() {
     super();
     this.state = {
@@ -53,7 +53,7 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 const mapDispatchToProps = {
-  loadItems: storeActions.loadItems,
-  addItemToCart: storeActions.addItemToCart
+  loadItems: searchActions.loadItems,
+  addItemToCart: searchActions.addItemToCart
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Store);
+export default connect(mapStateToProps, mapDispatchToProps)(Search);

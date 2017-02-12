@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Store from '../../containers/Store/Store';
+import Search from '../../containers/Search/Search';
 import './App.css';
 
 export default function App() {
@@ -10,7 +10,7 @@ export default function App() {
         <h1>Solo Inc. Starshipping</h1>
       </header>
       <h2>Starship Store</h2>
-      <Store />
+      <Search />
     </div>
   );
 }
