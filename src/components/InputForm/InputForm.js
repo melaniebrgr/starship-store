@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Button from '../Button/Button';
+
 export default function InputForm({
   title,
   children,
@@ -16,11 +18,11 @@ export default function InputForm({
           placeholder="Millenium Falcon"
           onChange={onChangeTitle} />
       </label>
-      <button 
+      <Button
         type="submit"
-        onClick={onClickSave} >
+        onClick={onClickSave}>
         Submit
-      </button>
+      </Button>
     </form>    
   );
 }
