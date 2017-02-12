@@ -27,10 +27,10 @@ class Store extends Component {
     }
   }
   render() {
-    const displayResults = store => {
-      if (Object.keys(store).length === 0 && store.constructor === Object) return;
-      if (store.count !== undefined && store.count === 0) return <p>No results.</p>;
-      return store.results.map((item, index) => <StarshipCard key={index} item={item} />);
+    const displayResults = searchResults => {
+      if (Object.keys(searchResults).length === 0 && searchResults.constructor === Object) return;
+      if (searchResults.count !== undefined && searchResults.count === 0) return <p>No results.</p>;
+      return searchResults.results.map((item, index) => <StarshipCard key={index} item={item} addItemToCart={this.props.addItemToCart} />);
     }
     return (
       <div>
@@ -40,7 +40,7 @@ class Store extends Component {
           onClickSave={this.onClickSave}>
             Add Starship to Store
         </InputForm>
-        { displayResults(this.props.store) }
+        { displayResults(this.props.searchResults) }
       </div>
     )
   }
@@ -48,10 +48,12 @@ class Store extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    store: state.store
+    searchResults: state.store.searchResults,
+    cart: state.store.cart
   }
 }
 const mapDispatchToProps = {
-  loadItems: storeActions.loadItems
+  loadItems: storeActions.loadItems,
+  addItemToCart: storeActions.addItemToCart
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Store);

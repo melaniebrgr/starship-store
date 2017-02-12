@@ -1,7 +1,10 @@
 import React from 'react';
 
+import Button from '../Button/Button';
+
 export default function StarshipCard({
-  item
+  item,
+  addItemToCart,
 }) {
   return (
     <div>
@@ -13,6 +16,11 @@ export default function StarshipCard({
         <li>passengers: {item.passengers}</li>
         <li>cost: {item.cost_in_credits} credits</li>
       </ul>
+      <Button
+        type="button"
+        onClick={ () => addItemToCart(item) }>
+          Add to cart
+      </Button>
     </div>
   );
 }

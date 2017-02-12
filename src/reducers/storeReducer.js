@@ -1,9 +1,16 @@
 import TYPES from '../actions/actionTypes';
 
-export default function storeReducer(state = {}, { type, payload }) {
+const INIT_STATE = {
+  searchResults: {},
+  cart: []
+}
+
+export default function storeReducer(state = INIT_STATE, { type, payload }) {
   switch (type) {
     case TYPES.loadItemsSuccess:
-      return { ...payload.data };
+      return Object.assign({}, state, { searchResults: payload.data })
+    case TYPES.addItemToCart:
+      return Object.assign({}, state, { cart: [...state.cart, payload.item] })
     default:
       return state;
   }

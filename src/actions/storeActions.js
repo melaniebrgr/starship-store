@@ -1,6 +1,15 @@
 import TYPES from './actionTypes';
 import makeSWAPIurl from '../constants/api-urls';
 
+export function addItemToCart(item) {
+  return {
+    type: TYPES.addItemToCart,
+    payload: {
+      item
+    }
+  }
+}
+
 function loadItemsSuccess(data) {
   return {
     type: TYPES.loadItemsSuccess,
