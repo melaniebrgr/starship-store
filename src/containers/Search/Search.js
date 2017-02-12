@@ -27,7 +27,7 @@ class Search extends Component {
     }
   }
   render() {
-    const displayResults = searchResults => {
+    const displaySearchResults = searchResults => {
       if (Object.keys(searchResults).length === 0 && searchResults.constructor === Object) return;
       if (searchResults.count !== undefined && searchResults.count === 0) return <p>No results.</p>;
       return searchResults.results.map((item, index) => <StarshipCard key={index} item={item} addItemToCart={this.props.addItemToCart} />);
@@ -40,7 +40,7 @@ class Search extends Component {
           onClickSave={this.onClickSave}>
             Add Starship to Store
         </InputForm>
-        { displayResults(this.props.searchResults) }
+        { displaySearchResults(this.props.searchResults) }
       </div>
     )
   }
