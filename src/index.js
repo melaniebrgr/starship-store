@@ -8,8 +8,6 @@ import App from './components/App/App';
 import Search from './containers/Search/Search';
 import Cart from './containers/Cart/Cart'
 
-import './index.css';
-
 ReactDOM.render(
   <Provider store={configureStore()}>
     <Router history={browserHistory}>
