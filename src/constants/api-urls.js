@@ -1,8 +1,13 @@
-const SWAPI_BASE_URL = 'http://swapi.co/api/';
-const SWAPI_VEHICLES = 'vehicles/';
-const SWAPI_STARSHIPS = 'starships/';
-const SWAPI_FILMS = 'films/';
+const SWAPI_URLS = {
+  base: 'http://swapi.co/api/',
+  vehicles: 'vehicles/',
+  people: 'people/',  
+  starships: 'starships/',
+  films: 'films/',
+  search: '?search=',  
+}
 
-export const GET_ALL_VEHICLES = `${SWAPI_BASE_URL}${SWAPI_VEHICLES}`;
-export const GET_ALL_STARSHIPS = `${SWAPI_BASE_URL}${SWAPI_STARSHIPS}`;
-export const GET_ALL_FILMS = `${SWAPI_BASE_URL}${SWAPI_FILMS}`;
+export default function makeSWAPIurl(attr, query) {
+  const makeQueryParam = query => `${SWAPI_URLS.search}${query}`;
+  return `${SWAPI_URLS.base}${SWAPI_URLS[attr]}${query ? makeQueryParam(query) : ''}`;
+}

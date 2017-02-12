@@ -24,7 +24,7 @@ class Store extends Component {
   onClickSave(e) {
     e.preventDefault();
     if (this.state.item.title) {
-      this.props.loadItems(this.state.item.title);
+      this.props.loadItems('starships', this.state.item.title);
       this.setState({ item: { title: '' } });
     }
   }

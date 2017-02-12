@@ -1,6 +1,7 @@
 import TYPES from './actionTypes';
+import makeSWAPIurl from '../constants/api-urls';
 
-export function loadItemsSuccess(items) {
+function loadItemsSuccess(items) {
   return {
     type: TYPES.loadItemsSuccess,
     payload: {
@@ -9,9 +10,9 @@ export function loadItemsSuccess(items) {
   } 
 }
 
-export function loadItems(query) {
+export function loadItems(attr, query) {
   return function(dispatch) {
-    return fetch(`https://swapi.co/api/starships/?search=${query}`)
+    return fetch(makeSWAPIurl(attr, query))
       .then(response => response.json())
       .then(data => dispatch(loadItemsSuccess(data.results)))
       .catch(error => {
