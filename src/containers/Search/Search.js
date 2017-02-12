@@ -34,6 +34,7 @@ class Search extends Component {
     }
     return (
       <div>
+        <h2>Starship Store</h2>
         <InputForm 
           title={this.state.query} 
           onChangeTitle={this.onChangeTitle} 
