@@ -2,13 +2,8 @@ import TYPES from '../actions/actionTypes';
 
 export default function storeReducer(state = [], { type, payload }) {
   switch (type) {
-    case TYPES.createStoreItem:
-      return [
-        ...state,
-        {...payload.item}
-      ];
     case TYPES.loadItemsSuccess:
-      return payload.items;
+      return payload.items.length ? [...payload.items] : [{name: 'No results.'}];
     default:
       return state;
   }

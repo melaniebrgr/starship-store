@@ -1,14 +1,5 @@
 import TYPES from './actionTypes';
 
-export function createStoreItem(item) {
-  return {
-    type: TYPES.createStoreItem,
-    payload: {
-      item
-    }    
-  } 
-}
-
 export function loadItemsSuccess(items) {
   return {
     type: TYPES.loadItemsSuccess,
@@ -18,9 +9,9 @@ export function loadItemsSuccess(items) {
   } 
 }
 
-export function loadItems() {
+export function loadItems(query) {
   return function(dispatch) {
-    return fetch('http://swapi.co/api/starships/')
+    return fetch(`https://swapi.co/api/starships/?search=${query}`)
       .then(response => response.json())
       .then(data => dispatch(loadItemsSuccess(data.results)))
       .catch(error => {

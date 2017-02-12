@@ -24,12 +24,9 @@ class Store extends Component {
   onClickSave(e) {
     e.preventDefault();
     if (this.state.item.title) {
-      this.props.createStoreItem(this.state.item);
+      this.props.loadItems(this.state.item.title);
       this.setState({ item: { title: '' } });
     }
-  }
-  componentDidMount() {
-    this.props.loadItems();
   }
   render() {
     return (
@@ -41,7 +38,7 @@ class Store extends Component {
             Add Starship to Store
         </InputForm>
         <ul>
-          {this.props.store.map( (item, index) => <li key={index}>{item.title || item.name}</li> )}
+          { this.props.store.map((item, index) => <li key={index}>{item.name}</li>) }
         </ul>
       </div>
     )
@@ -55,7 +52,6 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = {
-  createStoreItem: storeActions.createStoreItem,
   loadItems: storeActions.loadItems
 };
 
