@@ -30,7 +30,7 @@ class Search extends Component {
     const displaySearchResults = searchResults => {
       if (Object.keys(searchResults).length === 0 && searchResults.constructor === Object) return;
       if (searchResults.count !== undefined && searchResults.count === 0) return <p>No results.</p>;
-      return searchResults.results.map((item, index) => <StarshipCard key={index} item={item} addItemToCart={this.props.addItemToCart} />);
+      return searchResults.results.map((item, index) => <StarshipCard key={index} item={item} buttonText="Add to cart" onClick={this.props.addItemToCart} />);
     }
     return (
       <div>

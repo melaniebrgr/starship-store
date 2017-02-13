@@ -4,7 +4,8 @@ import Button from '../Button/Button';
 
 export default function StarshipCard({
   item,
-  addItemToCart,
+  onClick,
+  buttonText,
 }) {
   return (
     <div>
@@ -18,8 +19,8 @@ export default function StarshipCard({
       </ul>
       <Button
         type="button"
-        onClick={ () => addItemToCart(item) }>
-          Add to cart
+        onClick={ () => onClick(item) }>
+          {buttonText}
       </Button>
     </div>
   );
