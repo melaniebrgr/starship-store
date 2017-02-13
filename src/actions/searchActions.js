@@ -10,6 +10,15 @@ export function addItemToCart(item) {
   }
 }
 
+export function removeItemFromCart(item) {
+  return {
+    type: TYPES.removeItemFromCart,
+    payload: {
+      item
+    }
+  }
+}
+
 function loadItemsSuccess(data) {
   return {
     type: TYPES.loadItemsSuccess,

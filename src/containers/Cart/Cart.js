@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import * as searchActions from '../../actions/searchActions';
 
 import StarshipCard from '../../components/StarshipCard/StarshipCard';
 
 class Cart extends Component {
   render() {
-    console.log(this.props);
-    let { cart } = this.props;
+    let { cart, removeItemFromCart } = this.props;
     return (
       <div>
         <h2>Starship Cart</h2>
-        {cart.length ? cart.map((item, index) => <StarshipCard key={index} item={item} buttonText="Remove from cart" />) : <p>Nothing saved to cart yet.</p>}
+        {cart.length ? cart.map((item, index) => <StarshipCard key={index} item={item} buttonText="Remove from cart" onClick={removeItemFromCart}  />) : <p>Nothing saved to cart.</p>}
       </div> 
     );
   }
@@ -21,9 +21,7 @@ const mapStateToProps = (state, ownProps) => {
     cart: state.store.cart
   }
 }
-// const mapDispatchToProps = {
-  // removeItemFromCart: searchActions.removeItemFromCart,
-// };
-export default connect(mapStateToProps)(Cart);
-
-//onClick={this.props.removeItemFromCart}
+const mapDispatchToProps = {
+  removeItemFromCart: searchActions.removeItemFromCart,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);
