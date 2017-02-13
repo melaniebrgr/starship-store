@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import Button from '../Button/Button';
 
 export default function InputForm({
-  title,
   children,
+  title,
   onChangeTitle,
   onClickSave,
 }) {
@@ -27,3 +27,9 @@ export default function InputForm({
   );
 }
 
+InputForm.propTypes = {
+  children: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  onChangeTitle: PropTypes.func.isRequired,
+  onClickSave: PropTypes.func.isRequired
+}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import Button from '../Button/Button';
 
@@ -24,4 +24,17 @@ export default function StarshipCard({
       </Button>
     </div>
   );
+}
+
+StarshipCard.propTypes = {
+  item: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    model: PropTypes.string.isRequired,
+    crew: PropTypes.string.isRequired,
+    hyperdrive_rating: PropTypes.string.isRequired,
+    passengers: PropTypes.string.isRequired,
+    cost_in_credits: PropTypes.string.isRequired,
+  }),
+  onClick: PropTypes.func,
+  buttonText: PropTypes.string
 }
