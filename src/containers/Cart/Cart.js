@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as searchActions from '../../actions/searchActions';
 
+import CartDetails from '../../components/CartDetails/CartDetails';
 import StarshipCard from '../../components/StarshipCard/StarshipCard';
 
 class Cart extends Component {
@@ -10,7 +11,8 @@ class Cart extends Component {
     return (
       <div>
         <h2>Starship Cart</h2>
-        {cart.length ? cart.map((item, index) => <StarshipCard key={index} item={item} buttonText="Remove from cart" onClick={removeItemFromCart}  />) : <p>Nothing saved to cart.</p>}
+        {cart.length > 0 ? <CartDetails cart={cart} /> : ''}
+        {cart.length > 0 ? cart.map((item, index) => <StarshipCard key={index} item={item} buttonText="Remove from cart" onClick={removeItemFromCart}  />) : <p>Nothing saved to cart.</p>}
       </div> 
     );
   }
