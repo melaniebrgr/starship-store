@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 import configureStore from './store/configureStore';
 import App from './components/App/App';
@@ -11,7 +11,7 @@ import Cart from './containers/Cart/Cart'
 
 ReactDOM.render(
   <Provider store={configureStore()}>
-    <Router history={browserHistory}>
+    <Router history={hashHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={Home} />
         <Route path="search" component={Search} />
