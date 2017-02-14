@@ -34,12 +34,12 @@ class Search extends Component {
     }
     return (
       <div>
-        <h2>Starship Store</h2>
+        <h2>Search for starships on sale</h2>
         <InputForm 
           title={this.state.query} 
           onChangeTitle={this.onChangeTitle} 
           onClickSave={this.onClickSave}>
-            Add Starship to Store
+            Search inventory
         </InputForm>
         { displaySearchResults(this.props.searchResults) }
       </div>

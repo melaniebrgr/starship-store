@@ -2,13 +2,15 @@ import React, { PropTypes } from 'react';
 
 import Button from '../Button/Button';
 
+import './StarshipCard.css';
+
 export default function StarshipCard({
   item,
   onClick,
   buttonText,
 }) {
   return (
-    <div>
+    <div className="StarshipCard img-thumbnail">
       <h3>{item.name}</h3>
       <p>{item.model}</p>
       <ul>

@@ -9,15 +9,18 @@ export default function InputForm({
   onClickSave,
 }) {
   return (
-    <form>
-      <label>{children}
-        {' '}
-        <input 
-          type="text"
-          value={title}
-          placeholder="Millenium Falcon"
-          onChange={onChangeTitle} />
-      </label>
+    <form className="form-inline">
+      <div className="form-group">
+        <label>{children}</label>
+          {' '}
+          <input 
+            type="text"
+            value={title}
+            placeholder="e.g. Millennium Falcon"
+            onChange={onChangeTitle}
+            className="form-control" />
+      </div>
+      {' '}
       <Button
         type="submit"
         onClick={onClickSave}>
