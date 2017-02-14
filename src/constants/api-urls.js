@@ -1,5 +1,5 @@
 const SWAPI_URLS = {
-  base: 'http://swapi.co/api/',
+  base: 'https://swapi.co/api/',
   vehicles: 'vehicles/',
   people: 'people/',  
   starships: 'starships/',
