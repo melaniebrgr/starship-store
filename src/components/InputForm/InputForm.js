@@ -4,8 +4,8 @@ import Button from '../Button/Button';
 
 export default function InputForm({
   children,
-  title,
-  onChangeTitle,
+  value,
+  onChangeValue,
   onClickSave,
 }) {
   return (
@@ -15,9 +15,9 @@ export default function InputForm({
           {' '}
           <input 
             type="text"
-            value={title}
+            value={value}
             placeholder="e.g. Millennium Falcon"
-            onChange={onChangeTitle}
+            onChange={onChangeValue}
             className="form-control" />
       </div>
       {' '}
@@ -32,7 +32,7 @@ export default function InputForm({
 
 InputForm.propTypes = {
   children: PropTypes.string,
-  title: PropTypes.string.isRequired,
-  onChangeTitle: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+  onChangeValue: PropTypes.func.isRequired,
   onClickSave: PropTypes.func.isRequired
 }
