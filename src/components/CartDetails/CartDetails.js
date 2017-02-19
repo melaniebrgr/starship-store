@@ -5,7 +5,7 @@ export default function CartDetails({
 }) {
   const makeTableRows = (item, index) => {
     return (
-      <tr>
+      <tr key={index}>
         <td>{index}</td>
         <td>{item.name}</td>
         <td>{item.cost_in_credits}</td>
